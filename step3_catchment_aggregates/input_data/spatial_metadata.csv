@@ -1,0 +1,91 @@
+"attribute_class","product_name","attr_ident","attr_plot_name","attribute_name","unit","description","data_source","citation"
+"Location and topography","cop_dem_elev",NA,NA,"elev_mean","m a.s.l.","Mean elevation within catchment","Copernicus GLO-30 DEM","EU-DEM: Copernicus GLO-30 DEM, version 2023_1, Copernicus [data set], https://doi.org/10.5270/esa-c5d3d65, 2023"
+NA,"cop_dem_elev",NA,NA,"elev_min","m a.s.l.","Minimum elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_10","m a.s.l.","10th percentile elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_25","m a.s.l.","25th percentile elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_50","m a.s.l.","Median elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_75","m a.s.l.","75th percentile elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_90","m a.s.l.","90th percentile elevation within catchment",NA,NA
+NA,"cop_dem_elev",NA,NA,"elev_max","m a.s.l.","Maximum elevation within catchment",NA,NA
+NA,"cop_dem_slope",NA,NA,"slope_mean","°","Mean slope within catchment",NA,NA
+NA,"cop_dem_slope",NA,NA,"flat_area_perc","%","Percentage of catchment area with slope smaller than 3°",NA,NA
+NA,"cop_dem_slope",NA,NA,"steep_area_perc","%","Percentage of catchment area with slope greater than 15°",NA,NA
+NA,"cop_dem_aspect",NA,NA,"northn_mean","-","Mean northness within catchment",NA,NA
+NA,"cop_dem_aspect",NA,NA,"eastn_mean","-","Mean eastness within catchment",NA,NA
+NA,"eu_hydro",NA,NA,"drainage_density","km km-2","Drainage density as a ratio of stream length within catchment and catchment area","EU-Hydro – River Network Database v1.3","EU-Hydro: EU-Hydro River Network Database, https://land.copernicus.eu/imagery-in-situ/eu-hydro/eu-hydro-river-network-database (last access: 07 October 2025), 2020"
+NA,"mohp",NA,NA,"DSD[1-9]","m","Divide to stream distance: Sum of the distances to the nearest stream and catchment divide","EU-MOHP","Nölscher, M., M. Mutz, S. Broda (2022). EU-MOHP v013.1.1 Dataset, HydroShare, https://doi.org/10.4211/hs.0d6999591fb048cab5ab71fcb690eadb"
+NA,"mohp",NA,NA,"LP[1-9]","m","Lateral position: Relative measure of the position between the nearest stream and divide",NA,NA
+NA,"mohp",NA,NA,"SD[1-9]","m","Stream distance: Distance to the nearest stream",NA,NA
+"Land cover","clc",NA,"Crop","crop_perc","%","Percentage of agriculture","CLC","CLC: Corine Land Cover, CLC [data set], https://doi.org/10.2909/960998c1-1870-4e82-8051-6485205ebbac, 2018."
+NA,"clc",NA,"Grass","grass_perc","%","Percentage of grass and herb vegetation",NA,NA
+NA,"clc",NA,"Shrub","shrub_perc","%","Percentage of medium-scale vegetation",NA,NA
+NA,"clc",NA,"Deciduous wood","dwood_perc","%","Percentage of deciduous  forest",NA,NA
+NA,"clc",NA,"Mixed wood","mix_wood_perc","%","Percentage of mixed forest",NA,NA
+NA,"clc",NA,"Evergreen wood","ewood_perc","%","Percentage of coniferous forest (evergreen)",NA,NA
+NA,"clc",NA,"Wetland","wetland_perc","%","Percentage of wetlands",NA,NA
+NA,"clc",NA,"Inland water","inwater_perc","%","Percentage of inland water",NA,NA
+NA,"clc",NA,"Ice","ice_perc","%","Percentage of glaciers and perpetual snow",NA,NA
+NA,"clc",NA,"Loose rock","loose_rock_perc","%","Percentage of loose rocks and bare soils",NA,NA
+NA,"clc",NA,"Rock","rock_perc","%","Percentage of hard rocks and bare soils",NA,NA
+NA,"clc",NA,"Urban","urban_perc","%","Percentage of urban and settlements",NA,NA
+"Soil","esdd","sand","Sand content","sand_perc","%","Sand content","ESDD","ESDD: European Soil Database Derived data, https://esdac.jrc.ec.europa.eu/content/european-soil-database-derived-data (last access: 15 May 2023), 2013."
+NA,"esdd","silt","Silt content","silt_perc","%","Silt content",NA,NA
+NA,"esdd","clay","Clay content","clay_perc","%","Clay content",NA,NA
+NA,"esdd","oc","Corg content","organic_perc","%","Organic carbon content",NA,NA
+NA,"esdd","gravel","Coarse fragments","coarse_fragm_perc","%","Coarse fragments",NA,NA
+NA,"esdd","bd","Bulk density","bulk_dens","g cm-3","Bulk density",NA,NA
+NA,"esdd","tawc","TAWC","tot_avail_water","mm","Total available water content from PTF",NA,NA
+NA,"esdd","depth_roots","Root depth","root_depth","cm","Depth available to roots",NA,NA
+NA,"eu_shd","THS","THS","soil_porosity","-","Saturated water content",NA,"Tóth, B., Weynants, M., Pásztor, L., and Hengl, T.: 3D soil hydraulic database of Europe at 250<U+2009>m resolution, Hydrol. Process., 31, 2662–2666, https://doi.org/10.1002/hyp.11203, 2017."
+NA,"eu_shd","KS","KS","soil_conductivity","cm h-1","Saturated hydraulic conductivity",NA,NA
+NA,"ggt","bedrock_depth","Bedrock depth","bedrock_depth","m","Depth to bedrock","GGT","Pelletier, J. D., Broxton, P. D., Hazenberg, P., Zeng, X., Troch, P. A., Niu, G., Williams, Z. C., Brunke, M. A., and Gochis, D.: Global 1-km Gridded Thickness of Soil, Regolith, and Sedimentary Deposit Layers, ORNL DAAC, Oak Ridge, Tennessee, USA, https://doi.org/10.3334/ORNLDAAC/1304, 2016"
+"Hydrogeology","medkam","1","Karst aquifer","karst_carb_aquif_perc","%","Karst aquifers in sedimentary and metamorphic carbonate rocks","MEDKAM","XANKE J, GOLDSCHEIDER N, BAKALOWICZ M, BARBERÁ JA, BRODA S, CHEN Z, GHANMI M, GÜNTHER A, HARTMANN A, JOURDE H, LIESCH T, MUDARRA M, PETITTA M, RAVBAR N & STEPANOVIC Z (2022): Mediterranean Karst Aquifer Map (MEDKAM), 1 : 5 000 000. Berlin, Karlsruhe, Paris. doi: 10.25928/MEDKAM.1"
+NA,"medkam","3","Potential karst aquifer at depth","pot_karst_aquif_perc","%","Various hydrogeological settings in other sedimentary and volcanic formations (karst aquifers are possibly present at depth)",NA,NA
+NA,"medkam","4","No karst aquifer","no_karst_aquif_perc","%","Local, poor and shallow aquifers in other metamorphic and igneous rocks (no karst aquifers at depth)",NA,NA
+NA,"ihme","Calcareous rocks","Calcareous rocks","calc_perc","%","Lith. level 4: Calcareous rocks","IHME","IHME: BGR & UNESCO (eds.) (2019): International Hydrogeological Map of Europe 1:1,500,000 (IHME1500). Digital map data v1.2. Hannover/Paris."
+NA,"ihme","Siliciclastic rocks","Siliciclastic rocks","silic_perc","%","Lith. level 4: Siliciclastic rocks",NA,NA
+NA,"ihme","Magmatic rocks","Magmatic rocks","magm_perc","%","Lith. level 4: Magmatic rocks",NA,NA
+NA,"ihme","Metamorphic rocks","Metamorphic rocks","metam_perc","%","Lith. level 4: Metamorphic rocks",NA,NA
+NA,"ihme","Calcareous rocks and coarse sediments","Calcareous rocks and coarse sediments","calc_crse_sed_perc","%","Lith. level 4: Calcareous rocks and coarse sediments",NA,NA
+NA,"ihme","Calcareous rocks and fine sediments","Calcareous rocks and fine sediments","calc_fine_sed_perc","%","Lith. level 4: Calcareous rocks and fine sediments",NA,NA
+NA,"ihme","Siliciclastic rocks and coarse sediments","Siliciclastic rocks and coarse sediments","silic_crse_sed_perc","%","Lith. level 4: Siliciclastic rocks and coarse sediments",NA,NA
+NA,"ihme","Siliciclastic rocks and fine sediments","Siliciclastic rocks and fine sediments","silic_fine_sed_perc","%","Lith. level 4: Siliciclastic rocks and fine sediments",NA,NA
+NA,"ihme","Coarse sediments","Coarse sediments","crse_sed_perc","%","Lith. level 4: Coarse sediments",NA,NA
+NA,"ihme","Fine sediments","Fine sediments","fine_sed_perc","%","Lith. level 4: Fine sediments",NA,NA
+NA,"ihme","Limestones (jointed, karstified)","Limestones (jointed, karstified)","lime_karst_perc","%","Lith. level 1: Limestones (jointed, karstified)",NA,NA
+NA,"ihme","Dolomitic limestones (jointed, karstified)","Dolomitic limestones (jointed, karstified)","dol_lime_karst_perc","%","Lith. level 1: Dolomitic limestones (jointed, karstified)",NA,NA
+NA,"ihme","Chalkstones, limestones (jointed, karstified)","Chalkstones, limestones (jointed, karstified)","chalk_lime_karst_perc","%","Lith. level 1: Chalkstones, limestones (jointed, karstified)",NA,NA
+NA,"ihme","1","Highly productive porous aquifers","porous_high_prod_perc","%","Highly productive porous aquifers",NA,NA
+NA,"ihme","2","Low and moderately productive porous aquifers","porous_low_mod_prod_perc","%","Low and moderately productive porous aquifers",NA,NA
+NA,"ihme","3","Highly productive fissured aquifers","fissured_high_prod_perc","%","Highly productive fissured aquifers (including karstified rocks)",NA,NA
+NA,"ihme","4","Low and moderately productive fissured aquifers","fissured_low_mod_prod_perc","%","Low and moderately productive fissured aquifers (including karstified rocks)",NA,NA
+NA,"ihme","5","Locally aquiferous rocks, porous or fissured","local_aquif_perc","%","Locally aquiferous rocks, porous or fissured",NA,NA
+NA,"ihme","6","Practically non-aquiferous rocks, porous or fissured","non_aquif_perc","%","Practically non-aquiferous rocks, porous or fissured",NA,NA
+"Glacier","lia",NA,NA,"glacier_1850_perc","%","Percentage of glacier area within catchment",NA,"Reinthaler, J. and Paul, F.: Reconstructed glacier area and volume changes in the European Alps since the Little Ice Age, The Cryosphere, 19, 753–767, https://doi.org/10.5194/tc-19-753-2025, 2025."
+NA,"rgi",NA,NA,"glacier_2003_perc","%","Percentage of glacier area within catchment",NA,"RGI Consortium. (2023). Randolph Glacier Inventory - A Dataset of Global Glacier Outlines. (NSIDC-0770, Version 7). [Data Set]. Boulder, Colorado USA. National Snow and Ice Data Center. https://doi.org/10.5067/F6JMOVY5NAVZ. [describe subset used if applicable]. Date Accessed 10-07-2025.; Paul, F., Frey, H., and Le Bris, R.: A new glacier inventory for the European Alps from Landsat TM scenes of 2003: challenges and results, Ann. Glaciol., 52, 144–152, https://doi.org/10.3189/172756411799096295, 2011"
+NA,"sent",NA,NA,"glacier_2015_perc","%","Percentage of glacier area within catchment",NA,"Paul, F., Rastner, P., Azzoni, R. S., Diolaiuti, G., Fugazza, D., Le Bris, R., Nemec, J., Rabatel, A., Ramusovic, M., Schwaizer, G., and Smiraglia, C.: Glacier inventory of the Alps from Sentinel-2, shape files, PANGAEA, https://doi.org/10.1594/PANGAEA.909133, 2019."
+"Hydrology",NA,NA,NA,"q_mean","l s-1","Mean daily discharge",NA,NA
+NA,NA,NA,NA,"q_min","l s-1","Minimum daily discharge",NA,NA
+NA,NA,NA,NA,"q_10","l s-1","10th percentile daily discharge",NA,NA
+NA,NA,NA,NA,"q_90","l s-1","90th percentile daily discharge",NA,NA
+NA,NA,NA,NA,"q_max","l s-1","Maximum daily discharge",NA,NA
+NA,NA,NA,NA,"q_sd","l s-1","Standard deviation of daily discharge",NA,NA
+NA,NA,NA,NA,"CV","-","Coefficient of variation",NA,NA
+NA,NA,NA,NA,"SVC","-","Spring variability coefficient",NA,NA
+NA,NA,NA,NA,"ac_memory_lag","d","Autocorrelation memory lag",NA,NA
+NA,NA,NA,NA,"regulation_time","d","Regulation time",NA,NA
+NA,NA,NA,NA,"cc_peak_lag_[prod]","d","Cross-correlation lag",NA,NA
+NA,NA,NA,NA,"cc_peak_r_[prod]","-","Cross-correlation maximum value",NA,NA
+"Climate",NA,NA,NA,"p_mean_[prod]","mm d-1","Mean daily precipitation",NA,NA
+NA,NA,NA,NA,"p_seasonality_[prod]","-","Seasonality of precipitation",NA,NA
+NA,NA,NA,NA,"frac_snow_[prod]","-","Fraction falling as snow",NA,NA
+NA,NA,NA,NA,"high_prec_freq_[prod]","d y-1","Frequency of high precipitation days",NA,NA
+NA,NA,NA,NA,"high_prec_dur_[prod]","d","Mean duration of high precipitation days",NA,NA
+NA,NA,NA,NA,"high_prec_timing_[prod]","-","Main season for high precipitation days",NA,NA
+NA,NA,NA,NA,"low_prec_freq_[prod]","d y-1","Frequency of low precipitation days",NA,NA
+NA,NA,NA,NA,"low_prec_dur_[prod]","d","Mean duration of low precipitation days",NA,NA
+NA,NA,NA,NA,"low_prec_timing_[prod]","-","Main season for low precipitation days",NA,NA
+NA,NA,NA,NA,"t_mean_[prod}","°C","Mean daily temperature",NA,NA
+NA,NA,NA,NA,"tg_min_hy_mean_[prod]","°C","Mean hydroannual daily maximum temperature",NA,NA
+NA,NA,NA,NA,"tg_max_hy_mean_[prod]","°C","Mean hydroannual daily minimum temperature",NA,NA
+NA,NA,NA,NA,"cold_days_freq_[prod]","d","Frequency of  days with mean temperature <= 0°C",NA,NA
