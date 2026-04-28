@@ -55,7 +55,9 @@ for (r in 1:length(catch_del_name)) {
   
   # read catchment file
   if (catch_del_name_r == "catchment_expert") {
-    catch_repr <- st_read(paste0(path_catch_agg_in, "catchment_delineations/", catch_del_name_r, ".geojson"), quiet = TRUE)
+    catch_repr <- st_read(paste0(path_catch_agg_in, "catchment_delineations/", catch_del_name_r, ".geojson"), quiet = TRUE) %>%
+      # subset files for which no geometries could be published
+      filter(!st_is_empty(geometry))
   } else {
     catch_repr <- st_read(paste0("step2_buffer_approximations/output_data/catchment_delineations/", catch_del_name_r, ".geojson"), quiet = TRUE)
   }
