@@ -29,7 +29,7 @@ metadata_integr <- function() {
     print(AlpAKaS_ID_i)
   
     # load processed data file and extract time series attributes
-    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/daily/AlpAKaS_discharge_daily_", AlpAKaS_ID_i,".csv"))
+    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/daily/ALPAKAS_discharge_daily_", AlpAKaS_ID_i,".csv"))
     input_meta_add <- input_meta_add %>%
       mutate(
         q_daily_start  = if_else(AlpAKaS_ID == AlpAKaS_ID_i, as.character(file_res_i$date[1]), q_daily_start),
@@ -50,7 +50,7 @@ metadata_integr <- function() {
     print(AlpAKaS_ID_i)
     
     # load processed data file and extract time series attributes
-    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/hourly/AlpAKaS_discharge_hourly_", AlpAKaS_ID_i,".csv"))
+    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/hourly/ALPAKAS_discharge_hourly_", AlpAKaS_ID_i,".csv"))
     input_meta_add <- input_meta_add %>%
       mutate(
         q_hourly_start = if_else(AlpAKaS_ID == AlpAKaS_ID_i, as.character(file_res_i$date[1]), q_hourly_start),
@@ -100,6 +100,6 @@ metadata_integr <- function() {
   
   
   # save final metadata file
-  write.csv(input_meta_add, file = paste0(path_buff_approx_out, "/AlpAKaS_station_meta.csv"), row.names = FALSE)
+  write.csv(input_meta_add, file = paste0(path_buff_approx_out, "/ALPAKAS_station_meta.csv"), row.names = FALSE)
 
 }

@@ -149,7 +149,7 @@ hydrometeo_valid_hy <- function(station_meta){
     AlpAKaS_ID_i <- station_meta$AlpAKaS_ID[i]
     print(paste(i, AlpAKaS_ID_i, sep = ": "))
     
-    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/daily/AlpAKaS_discharge_daily_", AlpAKaS_ID_i,".csv")) %>%
+    file_res_i <- read.csv(paste0("step1_discharge_time_series/output_data/daily/ALPAKAS_discharge_daily_", AlpAKaS_ID_i,".csv")) %>%
       mutate(date = ymd(date)) %>%
       # remove artefacts, outliers, segments not identified as main segments in changepoint detection (keep NA values)
       filter(qc_flag != TRUE, is.na(cpd_segment_main) | cpd_segment_main != FALSE) %>%

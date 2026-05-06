@@ -17,7 +17,7 @@ compute_hydrometeo_valid_total <- function(meteo_prod_class){
     
     ### read daily meteorological aggregates and bind to data frame
     meteo_list[[i]] <- read.csv(file = paste0(path_catch_agg_out, catch_del_name_r,
-                                              "/meteorological_time_series/daily/AlpAKaS_meteo_daily_", catch_repr$AlpAKaS_ID[i], ".csv")) %>%
+                                              "/meteorological_time_series/daily/ALPAKAS_meteo_daily_", catch_repr$AlpAKaS_ID[i], ".csv")) %>%
       mutate(AlpAKaS_ID = catch_repr$AlpAKaS_ID[i],
              # for national data products, Tmean is approximated by (Tmin + Tmax) / 2, wherever missing
              temperature_mean_nat = coalesce(temperature_mean_nat, (temperature_min_nat + temperature_max_nat) / 2),

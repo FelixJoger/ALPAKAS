@@ -174,6 +174,6 @@ meteo_catch_attr <- function(catch_del_name_r){
     left_join(meteo_era5land_catch_attr, by = "AlpAKaS_ID", suffix = c("_eobs", "_era5land")) %>%
     left_join(meteo_nat_catch_attr %>% rename_with(~ paste0(.x, "_nat"), -AlpAKaS_ID), by = "AlpAKaS_ID") %>%
     mutate(across(where(is.numeric), ~ round(.x, 3)))
-  write.csv(meteo_catch_attr, paste0(path_catch_agg_out, catch_del_name_r, "/static_attributes/AlpAKaS_meteorology_attributes.csv"), row.names = FALSE)
+  write.csv(meteo_catch_attr, paste0(path_catch_agg_out, catch_del_name_r, "/static_attributes/ALPAKAS_meteorology_attributes.csv"), row.names = FALSE)
   
 }

@@ -110,13 +110,13 @@ for (i in 1:nrow(station_meta)){
   
   ### assign quality and resolution flags and save final daily time series
   q_final_daily_flags <- preproc_q_flags(final_class = "daily", station_meta_i = station_meta_i)
-  write.csv(file = paste0(path_q_out, "daily/AlpAKaS_discharge_daily_", AlpAKaS_ID_i, ".csv"), q_final_daily_flags, row.names = FALSE)
+  write.csv(file = paste0(path_q_out, "daily/ALPAKAS_discharge_daily_", AlpAKaS_ID_i, ".csv"), q_final_daily_flags, row.names = FALSE)
   
   if (station_meta$q_hourly_available[i]) {
     
     ### assign quality and resolution flags and save final hourly time series
     q_final_hourly_flags <- preproc_q_flags(final_class = "hourly", station_meta_i = station_meta_i)
-    write.csv(file = paste0(path_q_out, "hourly/AlpAKaS_discharge_hourly_", AlpAKaS_ID_i, ".csv"), q_final_hourly_flags, row.names = FALSE)
+    write.csv(file = paste0(path_q_out, "hourly/ALPAKAS_discharge_hourly_", AlpAKaS_ID_i, ".csv"), q_final_hourly_flags, row.names = FALSE)
     
   }
   

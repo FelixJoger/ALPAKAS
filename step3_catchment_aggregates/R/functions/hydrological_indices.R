@@ -149,6 +149,6 @@ hydro_catch_attr <- function(catch_del_name_r, catch_repr){
   hydrology_attr_list <- list(hydrograph_site_attr, cc_catch_attr)
   hydrology_attr <- reduce(hydrology_attr_list, left_join, by = "AlpAKaS_ID") %>%
     mutate(across(where(is.numeric), ~ round(.x, 3)))
-  write.csv(hydrology_attr, paste0(path_catch_agg_out, catch_del_name_r, "/static_attributes/AlpAKaS_hydrology_attributes.csv"), row.names = FALSE)
+  write.csv(hydrology_attr, paste0(path_catch_agg_out, catch_del_name_r, "/static_attributes/ALPAKAS_hydrology_attributes.csv"), row.names = FALSE)
   
 }

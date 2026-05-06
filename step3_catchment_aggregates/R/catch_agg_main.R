@@ -71,8 +71,8 @@ for (r in 1:length(catch_del_name)) {
 
     ### spatial aggregation of meteorological time series
     meteo_catch_res <- meteo_catch_agg(AlpAKaS_ID_i = AlpAKaS_ID_i, catch_repr_i = catch_repr_i)
-    write.csv(meteo_catch_res[[1]], paste0(path_catch_agg_out, catch_del_name_r, "/meteorological_time_series/daily/AlpAKaS_meteo_daily_", AlpAKaS_ID_i, ".csv"), row.names = FALSE)
-    write.csv(meteo_catch_res[[2]], paste0(path_catch_agg_out, catch_del_name_r, "/meteorological_time_series/hourly/AlpAKaS_meteo_hourly_", AlpAKaS_ID_i, ".csv"), row.names = FALSE)
+    write.csv(meteo_catch_res[[1]], paste0(path_catch_agg_out, catch_del_name_r, "/meteorological_time_series/daily/ALPAKAS_meteo_daily_", AlpAKaS_ID_i, ".csv"), row.names = FALSE)
+    write.csv(meteo_catch_res[[2]], paste0(path_catch_agg_out, catch_del_name_r, "/meteorological_time_series/hourly/ALPAKAS_meteo_hourly_", AlpAKaS_ID_i, ".csv"), row.names = FALSE)
 
   }
 
