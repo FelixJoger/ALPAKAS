@@ -96,7 +96,8 @@ metadata_integr <- function() {
                 dplyr::select(AlpAKaS_ID, area_catch_expert), by = "AlpAKaS_ID") %>%
     left_join(catch_approx %>% st_drop_geometry() %>%
                 dplyr::select(AlpAKaS_ID, area_catch_approx), by = "AlpAKaS_ID") %>%
-    relocate(catch_expert_available, catch_expert_shp, area_catch_expert, area_catch_approx, .after = comment_catchment)
+    relocate(catch_expert_available, catch_expert_shp, area_catch_expert, area_catch_approx, .after = comment_catchment) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   
   
   # save final metadata file
