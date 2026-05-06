@@ -1,5 +1,5 @@
 ---
-title: "AlpAKaS dataset - Code Repository"
+title: "ALPAKAS dataset - Code Repository"
 output: github_document
 always_allow_html: true
 ---
@@ -9,15 +9,14 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = 'center', fig.pos = "H", out.widt
 ```
 
 <p align="center">
-  <img width="40%" height="40%" src="AlpAKaS_logo.png">
+  <img width="40%" height="40%" src="ALPAKAS_logo.png">
   </a>
 </p>
 
 
-This code repository contains all R scripts required to generate the AlpAKaS dataset from original discharge time series and raw geospatial inputs. AlpAKaS is freely available via Zenodo at <https://doi.org/XXXX??> under an open-access licence and described in the corresponding data descriptor <https://doi.org/XXXX??>. The dataset was developed as part of the AlKa-DL project.
+This code repository contains all R scripts required to generate the ALPAKAS dataset from original discharge time series and raw geospatial inputs. ALPAKAS is freely available via Zenodo at <https://doi.org/XXXX??> under an open-access licence and described in the corresponding data descriptor <https://doi.org/XXXX??>. The dataset was developed as part of the AlKa-DL project.
 
-All data processing were performed in R 4.4 on a Windows Server 2019 Standard system (Version 1809).
-
+All data processing were performed in R 4.4 on a Windows Server 2019 Standard system (Version 1809). Climatic indices were computed using adapted code from Nans Addor (Addor, 2020, https://github.com/naddor/camels, last access: 5 May 2026).
 
 ## Getting Started
 
@@ -32,7 +31,7 @@ The code is organized into the subfolders `step1_discharge_time_series/`, `step2
 
 Collected station metadata, are available in the file `station_meta_input.csv` in the project root directory. This file contains the initial metadata compiled prior to preprocessing and serves as input to the workflow. The following metadata fields are required for preprocessing:
 
-- `AlpAKaS_ID`
+- `ALPAKAS_ID`
 - `country_code`
 - `temp_res_orig_inst`
 - `temp_res_orig_hourly`
@@ -70,10 +69,10 @@ In Step 2, catchment buffers are approximated for all sites following the approa
 
 The catchment approximation can be run either with or without tracer tests. If tracer tests are used, they must be stored in `input_data/Tracer/` as a GPKG file with the following fields:
 
-- `spring_name`: name of the spring where the tracer was detected (must exactly match the names in the AlpAKaS metadata)
+- `spring_name`: name of the spring where the tracer was detected (must exactly match the names in the ALPAKAS metadata)
 - `geometry`: LineString geometry representing the flow path from the injection point to the observation point (EPSG:3035)
 
-Data products required to compute the buffer approximations of the AlpAKaS dataset must be downloaded and stored in the predefined directory structure within the subfolder `input_data/`. Download links and instructions are provided in the subsection "Required input datasets" of this README file, as well as directly in the corresponding processing scripts.
+Data products required to compute the buffer approximations of the ALPAKAS dataset must be downloaded and stored in the predefined directory structure within the subfolder `input_data/`. Download links and instructions are provided in the subsection "Required input datasets" of this README file, as well as directly in the corresponding processing scripts.
 
 **Workflow**
 
@@ -83,7 +82,7 @@ The script `buffer_approx_main.R`:
 2. derives catchment approximations based on topography, tracer information, and a local water balance approach
 3. saves the resulting catchment approximations as GeoJSON files in the subfolder `output_data/`
 
-During processing, additional attributes are derived from discharge time series and catchment representations and integrated into the final metadata file `AlpAKaS_station_metadata.csv` in the `output_data/` subfolder. Intermediate results are stored in the subfolder `temp/`.
+During processing, additional attributes are derived from discharge time series and catchment representations and integrated into the final metadata file `ALPAKAS_station_metadata.csv` in the `output_data/` subfolder. Intermediate results are stored in the subfolder `temp/`.
 
 ### Catchment Aggregates
 
@@ -91,7 +90,7 @@ In Step 3, catchment aggregates are computed for different catchment representat
 
 **Input data requirements**
 
-Geospatial data products required to compute the catchment aggregates of the AlpAKaS dataset must be downloaded and stored in the predefined directory structure within the subfolder `input_data/`. Download links and instructions are provided in the subsection "Required input datasets" of this README file, as well as directly in the corresponding processing scripts. 
+Geospatial data products required to compute the catchment aggregates of the ALPAKAS dataset must be downloaded and stored in the predefined directory structure within the subfolder `input_data/`. Download links and instructions are provided in the subsection "Required input datasets" of this README file, as well as directly in the corresponding processing scripts. 
 
 **Workflow**
 

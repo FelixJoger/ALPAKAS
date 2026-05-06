@@ -1,19 +1,21 @@
-AlpAKaS dataset - Code Repository
+ALPAKAS dataset - Code Repository
 ================
 
 <p align="center">
-<img width="40%" height="40%" src="AlpAKaS_logo.png"> </a>
+<img width="40%" height="40%" src="ALPAKAS_logo.png"> </a>
 </p>
 
 This code repository contains all R scripts required to generate the
-AlpAKaS dataset from original discharge time series and raw geospatial
-inputs. AlpAKaS is freely available via Zenodo at
+ALPAKAS dataset from original discharge time series and raw geospatial
+inputs. ALPAKAS is freely available via Zenodo at
 <https://doi.org/XXXX??> under an open-access licence and described in
 the corresponding data descriptor <https://doi.org/XXXX??>. The dataset
 was developed as part of the AlKa-DL project.
 
 All data processing were performed in R 4.4 on a Windows Server 2019
-Standard system (Version 1809).
+Standard system (Version 1809). Climatic indices were computed using
+adapted code from Nans Addor (Addor, 2020,
+<https://github.com/naddor/camels>, last access: 5 May 2026).
 
 ## Getting Started
 
@@ -36,7 +38,7 @@ contains the initial metadata compiled prior to preprocessing and serves
 as input to the workflow. The following metadata fields are required for
 preprocessing:
 
-- `AlpAKaS_ID`
+- `ALPAKAS_ID`
 - `country_code`
 - `temp_res_orig_inst`
 - `temp_res_orig_hourly`
@@ -45,8 +47,8 @@ preprocessing:
 
 ### Discharge Time Series
 
-Discharge hydrographs are preprocessed conditionally based on the
-temporal resolution class of the original time series, following the
+In Step 1, discharge hydrographs are preprocessed conditionally based on
+the temporal resolution class of the original time series, following the
 workflow described in detail in Joger et al. ?? and illustrated in
 Figure??. Processing is applied sequentially to individual sites within
 a loop, with preprocessing steps selected according to the respective
@@ -91,22 +93,22 @@ information is incorporated into the final dataset.
 
 ### Buffer Approximations
 
-Catchment buffers are approximated for all sites following the approach
-described in Joger et al. ??.
+In Step 2, catchment buffers are approximated for all sites following
+the approach described in Joger et al. ??.
 
 **Input data requirements**
 
-The catchment approximation in Step 2 can be run either with or without
-tracer tests. If tracer tests are used, they must be stored in
-`input_data/tracer/` as a `.gpkg` file with the following fields:
+The catchment approximation can be run either with or without tracer
+tests. If tracer tests are used, they must be stored in
+`input_data/Tracer/` as a GPKG file with the following fields:
 
 - `spring_name`: name of the spring where the tracer was detected (must
-  exactly match the names in the AlpAKaS metadata)
+  exactly match the names in the ALPAKAS metadata)
 - `geometry`: LineString geometry representing the flow path from the
   injection point to the observation point (EPSG:3035)
 
 Data products required to compute the buffer approximations of the
-AlpAKaS dataset must be downloaded and stored in the predefined
+ALPAKAS dataset must be downloaded and stored in the predefined
 directory structure within the subfolder `input_data/`. Download links
 and instructions are provided in the subsection “Required input
 datasets” of this README file, as well as directly in the corresponding
@@ -125,15 +127,18 @@ The script `buffer_approx_main.R`:
 
 During processing, additional attributes are derived from discharge time
 series and catchment representations and integrated into the final
-metadata file `AlpAKaS_station_metadata.csv` in the `output_data/`
+metadata file `ALPAKAS_station_metadata.csv` in the `output_data/`
 subfolder. Intermediate results are stored in the subfolder `temp/`.
 
 ### Catchment Aggregates
 
+In Step 3, catchment aggregates are computed for different catchment
+representations.
+
 **Input data requirements**
 
 Geospatial data products required to compute the catchment aggregates of
-the AlpAKaS dataset must be downloaded and stored in the predefined
+the ALPAKAS dataset must be downloaded and stored in the predefined
 directory structure within the subfolder `input_data/`. Download links
 and instructions are provided in the subsection “Required input
 datasets” of this README file, as well as directly in the corresponding
@@ -215,7 +220,7 @@ directories under `step2_buffer_approximations/input_data/...`.
 | Product name  | Download link                                                                                                | Directory                                    |
 |---------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------|
 | GLO-30 DEM    | [Access dataset](https://portal.opentopography.org/raster?opentopoID=OTSDEM.032021.4326.3)                   | `.../static_data_prod/Copernicus_GLO30_DEM/` |
-| EEA coastline | [Access dataset](https://www.eea.europa.eu/en/datahub/datahubitem-view/af40333f-9e94-4926-a4f0-0a787f1d2b8f) | `.../static_data_prod/eea_coastline/`        |
+| EEA coastline | [Access dataset](https://www.eea.europa.eu/en/datahub/datahubitem-view/af40333f-9e94-4926-a4f0-0a787f1d2b8f) | `.../static_data_prod/Eea_Coastline/`        |
 | ERA5-Land     | [Access dataset](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land?tab=overview)               | `.../meteo_data_prod/ERA5land/`              |
 |               |                                                                                                              |                                              |
 
