@@ -58,11 +58,12 @@ series is not fully reproducible, as these data could not be made
 publicly available. However, for each temporal resolution class, one
 representative original time series is provided in the correct format,
 including manually assigned quality control flags (instantaneous: Source
-de l´Areuse (Bundesamt für Umwelt (BAFU) - Abteilung Hydrologie);
-hourly: Source d´Argens (Service central d’hydrométéorologie et d’appui
-à la prévision des inondations (SCHAPI) - Hydroportail); daily: Source
-des Frayères (Service central d’hydrométéorologie et d’appui à la
-prévision des inondations (SCHAPI) - Hydroportail)).
+de l´Areuse (Bundesamt für Umwelt (BAFU) - Abteilung Hydrologie; subset
+2015-2024 due to file size); hourly: Source d´Argens (Service central
+d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) -
+Hydroportail); daily: Source des Frayères (Service central
+d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) -
+Hydroportail)).
 
 **Input data requirements**
 
