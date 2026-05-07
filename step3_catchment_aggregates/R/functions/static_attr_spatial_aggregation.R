@@ -430,29 +430,34 @@ static_attr_catch_agg <- function(catch_del_name_r, catch_repr) {
   topography_attr_list <- list(cop_dem_elev_catch_attr, cop_dem_slope_catch_attr, cop_dem_aspect_catch_attr,
                                eu_hydro_catch_attr, mohp_site_attr_sub, kg_site_attr)
   topography_attr <- reduce(topography_attr_list, left_join, by = "AlpAKaS_ID") %>%
-    mutate(across(where(is.numeric), ~ round(.x, 3)))
+    mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   write.csv(topography_attr, paste0(path_catch_attr_out, "AlpAKaS_topography_attributes.csv"), row.names = FALSE)
   
   ### land cover ###
   land_cover_attr <- clc_catch_attr %>%
-    mutate(across(where(is.numeric), ~ round(.x, 3)))
+    mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   write.csv(land_cover_attr, paste0(path_catch_attr_out, "AlpAKaS_land_cover_attributes.csv"), row.names = FALSE)
   
   ### glacier ###
   glacier_attr <- glacier_catch_attr %>%
-    mutate(across(where(is.numeric), ~ round(.x, 3)))
+    mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   write.csv(glacier_attr, paste0(path_catch_attr_out, "AlpAKaS_glacier_attributes.csv"), row.names = FALSE)
   
   ### soil ###
   soil_attr_list <- list(esdd_catch_attr, eu_shd_catch_attr, ggt_catch_attr)
   soil_attr <- reduce(soil_attr_list, left_join, by = "AlpAKaS_ID") %>%
-    mutate(across(where(is.numeric), ~ round(.x, 3)))
+    mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   write.csv(soil_attr, paste0(path_catch_attr_out, "AlpAKaS_soil_attributes.csv"), row.names = FALSE)
   
   ### hydrogeology ###
   hydrogeology_attr_list <- list(medkam_catch_attr, ihme_catch_attr)
   hydrogeology_attr <- reduce(hydrogeology_attr_list, left_join, by = "AlpAKaS_ID") %>%
-    mutate(across(where(is.numeric), ~ round(.x, 3)))
+    mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+    rename(ALPAKAS_ID = AlpAKaS_ID)
   write.csv(hydrogeology_attr, paste0(path_catch_attr_out, "AlpAKaS_hydrogeology_attributes.csv"), row.names = FALSE)
   
 

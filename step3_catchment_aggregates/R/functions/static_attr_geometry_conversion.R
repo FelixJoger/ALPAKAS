@@ -54,7 +54,7 @@ static_attr_geom_convers <- function() {
   cop_dem_aspect_raster_bbox_rad <- cop_dem_aspect_raster_bbox * pi / 180
   cop_dem_slope_raster_bbox_rad <- cop_dem_slope_raster_bbox * pi / 180
   # calculate northness and eastness weighted by slope to account for high uncertainty for areas with low slope
-  # -> see: https://spatial-ecology.net/wp-content/uploads/2018/10/Topography.pdf
+  # -> see: https://doi.org/10.1038/sdata.2018.40
   cop_dem_northn_raster_bbox <- cos(cop_dem_aspect_raster_bbox_rad) * sin(cop_dem_slope_raster_bbox_rad)
   cop_dem_eastn_raster_bbox  <- sin(cop_dem_aspect_raster_bbox_rad) * sin(cop_dem_slope_raster_bbox_rad)
   writeRaster(cop_dem_northn_raster_bbox, filename = paste0(path_proc_data_prod, "cop_dem_northn_raster_bbox.tif"), overwrite = TRUE)
