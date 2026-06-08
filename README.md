@@ -72,7 +72,7 @@ stored in the subfolder `input_data/`, each containing the following
 columns:
 
 - `date`: timestamp in `YYYY-mm-dd` or `YYYY-mm-dd HH:MM:SS` format  
-- `discharge`: discharge values in L s⁻¹  
+- `discharge`: discharge values in L s$^{-1}$  
 - `qc_flag`: boolean indicator specifying whether a data point was
   identified as an outlier or artefact during manual quality control  
 - `qc_type`: classification of flagged values as “outlier” or “artefact”
@@ -119,8 +119,9 @@ processing scripts.
 
 The script `buffer_approx_main.R`:
 
-1.  identifies valid hydrological years (hydrological years with ≥ 80 %
-    data availability for both discharge and meteorological variables)
+1.  identifies valid hydrological years (hydrological years with $\geq$
+    80% data availability for both discharge and meteorological
+    variables)
 2.  derives catchment approximations based on topography, tracer
     information, and a local water balance approach
 3.  saves the resulting catchment approximations as GeoJSON files in the

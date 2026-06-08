@@ -61,7 +61,7 @@ for (r in 1:length(catch_del_name)) {
   } else {
     catch_repr <- st_read(paste0("step2_buffer_approximations/output_data/catchment_delineations/", catch_del_name_r, ".geojson"), quiet = TRUE)
   }
-
+  
   for (i in 1:nrow(catch_repr)){
 
     catch_repr_i <- catch_repr[i, ]

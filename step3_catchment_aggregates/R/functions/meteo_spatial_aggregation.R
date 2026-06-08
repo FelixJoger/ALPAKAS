@@ -7,7 +7,7 @@ meteo_catch_mean <- function(catch_repr_i, meteo_prod, var, years) {
   
   # define file path to read processed geospatial data products
   path_proc_data_prod <- paste0(path_catch_agg_temp, "proc_data_prod/")
-  
+
   #-----------------------------------------------------------------------------
   
   catch_mean_long_list <- list() # empty list for joining all variables

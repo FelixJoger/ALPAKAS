@@ -73,7 +73,7 @@ static_attr_catch_agg <- function(catch_del_name_r, catch_repr) {
   
   # define file path for processed geospatial data products
   path_proc_data_prod <- paste0(path_catch_agg_temp, "proc_data_prod/")
-  
+
   # define file paths for saving static attributes
   path_catch_attr_out <- paste0(path_catch_agg_out, catch_del_name_r, "/static_attributes/")
   
