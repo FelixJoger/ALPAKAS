@@ -1,4 +1,4 @@
-ALPAKAS dataset - Code Repository
+ALPAKAS - Code Repository
 ================
 
 <p align="center">

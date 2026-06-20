@@ -6,8 +6,9 @@
 meteo_catch_mean <- function(catch_repr_i, meteo_prod, var, years) {
   
   # define file path to read processed geospatial data products
-  path_proc_data_prod <- paste0(path_catch_agg_temp, "proc_data_prod/")
-
+  # path_proc_data_prod <- paste0(path_catch_agg_temp, "proc_data_prod/")
+  path_proc_data_prod <- "J:/PROJEKTE/AlKaDeL/Daten/spatial_data/processed_data/EPSG_3035/R/"
+  
   #-----------------------------------------------------------------------------
   
   catch_mean_long_list <- list() # empty list for joining all variables
@@ -42,9 +43,9 @@ meteo_catch_mean <- function(catch_repr_i, meteo_prod, var, years) {
         
         # generate time vector for different raster layers and overwrite in data frame, time will get shifted by one hour when assigned
         if (year_y == 1950){
-          start_date <- as.POSIXct(paste0(year_y, "-01-01 01:00:00", tz = "UTC")) # for 1950-01-01 no data for 00:00 exist
+          start_date <- as.POSIXct(paste0(year_y, "-01-01 01:00:00"), tz = "UTC") # for 1950-01-01 no data for 00:00 exist
         } else{
-          start_date <- as.POSIXct(paste0(year_y, "-01-01 00:00:00", tz = "UTC"))
+          start_date <- as.POSIXct(paste0(year_y, "-01-01 00:00:00"), tz = "UTC")
         }
         var_v_y_catch_mean$date <- seq(start_date, by = "1 hour", length.out = nrow(var_v_y_catch_mean))
         
@@ -52,6 +53,11 @@ meteo_catch_mean <- function(catch_repr_i, meteo_prod, var, years) {
         
         # extract dates and overwrite in data frame
         var_v_y_catch_mean$date <- as.Date(time(var_v_y_bbox))
+        
+        # unlike the other products, SLOCLIM values refer to the subsequent 24 hour-period and must therefore be shifted accordingly 
+        if (meteo_prod == "sloclim") {
+          var_v_y_catch_mean$date <- var_v_y_catch_mean$date - 1
+        }
         
       }
       
@@ -81,13 +87,13 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
   }
 
   ### apply function for data aggregation and select and rename columns
-  
-  
+
+
   ### national datasets ###
-  
+
   ### SPARTACUS ###
   if (country_code_i == "AT") {
-    
+
     print("SPARTACUS")
     catch_mean_nat <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "spartacus",
                                        var = c("RR", "TN", "TX"), years = 1961:2024)
@@ -99,10 +105,10 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
         temperature_min_nat = TN,
         temperature_max_nat = TX
       )
-  
+
   ### MeteoSwiss ###
   } else if (country_code_i %in% c("CH", "LI")) {
-    
+
     print("MeteoSwiss")
     catch_mean_nat <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "meteoswiss",
                                        var = c("RhiresD", "TabsD", "TminD", "TmaxD"), years = NULL)
@@ -117,7 +123,7 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
 
   ### HYRAS ###
   } else if (country_code_i == "DE") {
-    
+
     print("HYRAS")
     catch_mean_nat <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "hyras",
                                        var = c("pr", "tas", "tasmin", "tasmax"), years = 1951:2024)
@@ -129,10 +135,10 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
         temperature_mean_nat = tas,
         temperature_max_nat = tasmax
       )
-    
+
   ### SAFRAN ###
   } else if (country_code_i == "FR") {
-    
+
     print("SAFRAN")
     catch_mean_nat <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "safran",
                                        var = c("PRENEI", "PRELIQ", "T", "TINF_H", "TSUP_H"), years = 1958:2024)
@@ -145,10 +151,10 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
         temperature_mean_nat = T,
         temperature_max_nat = TSUP_H
       )
-    
+
   ### SLOCLIM ###
   } else if (country_code_i == "SI") {
-    
+
     print("SLOCLIM")
     catch_mean_nat <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "sloclim",
                                        var = c("pcp", "tmax_h", "tmin_h"), years = 1950:2018)
@@ -160,19 +166,19 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
         temperature_min_nat = tmin_h,
         temperature_max_nat = tmax_h
       )
-  
+
   } else {
-    
+
     # empty columns
     catch_mean_nat <- data.frame(date = as.Date(character()),
                                  precipitation_nat = as.numeric(),
                                  temperature_min_nat = as.numeric(),
                                  temperature_mean_nat = as.numeric(),
                                  temperature_max_nat = as.numeric())
-    
+
   }
-  
-  
+
+
   ### EOBS ###
   print("E-OBS")
   catch_mean_eobs <- meteo_catch_mean(catch_repr_i = catch_repr_i, meteo_prod = "eobs",
@@ -207,11 +213,12 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
   catch_mean_era5land_daily_prec <- catch_mean_era5land %>%
     dplyr::select(date, precipitation_era5land) %>%
     filter(hour(date) == 0) %>%
-    mutate(date = as.Date(date))
+    mutate(date = as.Date(date) - 1)
   
   # calculate daily min, mean and max temperature
   catch_mean_era5land_daily_temp <- catch_mean_era5land %>%
-    mutate(date = as.Date(date)) %>%
+    # UTC has to be transferred to CET (UTC+1) for instantaneous variables (temperature)
+    mutate(date = as.Date(date + hours(1))) %>%
     group_by(date) %>%
     summarise(
       temperature_min_era5land = min(temperature_mean_era5land),
@@ -233,22 +240,32 @@ meteo_catch_agg <- function(AlpAKaS_ID_i, catch_repr_i) {
     mutate(across(where(is.numeric), ~ round(.x, 3)))
   
   # convert cumulative precipitation to hourly increments
-  # generally, ERA5land also uses the end-of period convention for the hourly values
-  # (precipitation at UTC+01 represents the precipitation fallen between UTC00 and UTC+01 after de-accumulating)
-  catch_mean_hourly <- catch_mean_era5land %>%
+  # Era5-Land uses the end-of-period convention and UTC for precipitation (for time stamp 01:00 UTC, the accumulation period is 00:00-01:00 UTC),
+  # as in ALPAKAS the beginning-of-period convention and UTC+01 is used, conversions cancel out
+  catch_mean_hourly_prec <- catch_mean_era5land %>%
     arrange(date) %>%
     mutate(
       tp_diff = precipitation_era5land - lag(precipitation_era5land),
       precipitation_era5land = ifelse(hour(date) == 1, precipitation_era5land, tp_diff),
-      precipitation_era5land = ifelse(precipitation_era5land < 0, 0, precipitation_era5land) # very small negative values can occur which are set to 0
     ) %>%
-    dplyr::select(-tp_diff) %>%
-    # cap time series at end of 2024
-    filter(as.Date(date) <= as.Date("2024-12-31")) %>%
-    # make sure all dates are in correct format
-    mutate(date = format(date, "%Y-%m-%d %H:%M:%S"),
-           across(where(is.numeric), ~ round(.x, 3)))
+    dplyr::select(date, precipitation_era5land)
   
+  # UTC has to be transferred to CET (UTC+1) for instantaneous variables (temperature)
+  catch_mean_hourly_temp <- catch_mean_era5land %>%
+    mutate(
+      date = date + hours(1)
+    ) %>%
+    dplyr::select(date, temperature_mean_era5land)
+  
+  # combine hourly ERA5-Land variables
+  catch_mean_hourly <- catch_mean_hourly_prec %>%
+    full_join(catch_mean_hourly_temp, by = "date") %>%
+    filter(as.Date(date) <= as.Date("2024-12-31")) %>%
+    mutate(
+      date = format(date, "%Y-%m-%d %H:%M:%S", tz = "UTC"),
+      across(where(is.numeric), ~ round(.x, 3))
+    )
+
   return(list(catch_mean_daily = catch_mean_daily, catch_mean_hourly = catch_mean_hourly))
   
 }
