@@ -8,9 +8,10 @@ ALPAKAS - Code Repository
 This code repository contains all R scripts required to generate the
 ALPAKAS dataset from original discharge time series and raw geospatial
 inputs. ALPAKAS is freely available via Zenodo at
-<https://doi.org/XXXX??> under an open-access licence and described in
-the corresponding data descriptor <https://doi.org/XXXX??>. The dataset
-was developed as part of the AlKa-DL project.
+<https://doi.org/10.5281/zenodo.19329693> under an open-access licence
+and described in the corresponding data descriptor
+<https://doi.org/XXXX> (to be updated). The dataset was developed as
+part of the AlKa-DL project.
 
 All data processing were performed in R 4.4 on a Windows Server 2019
 Standard system (Version 1809). Climatic indices were computed using
@@ -49,9 +50,9 @@ preprocessing:
 
 In Step 1, discharge hydrographs are preprocessed conditionally based on
 the temporal resolution class of the original time series, following the
-workflow described in detail in Joger et al. ?? and illustrated in
-Figure??. Processing is applied sequentially to individual sites within
-a loop, with preprocessing steps selected according to the respective
+workflow described in detail in data descriptor and illustrated in Fig.
+B1. Processing is applied sequentially to individual sites within a
+loop, with preprocessing steps selected according to the respective
 temporal resolution class. The workflow includes manual data quality
 control. Quality flagging applied to the original instantaneous time
 series is not fully reproducible, as these data could not be made
@@ -95,7 +96,7 @@ information is incorporated into the final dataset.
 ### Buffer Approximations
 
 In Step 2, catchment buffers are approximated for all sites following
-the approach described in Joger et al. ??.
+the approach described in the data descriptor.
 
 **Input data requirements**
 
