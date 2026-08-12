@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = 'center', fig.pos = "H", out.widt
 </p>
 
 
-This code repository contains all R scripts required to generate the ALPAKAS dataset from original discharge time series and raw geospatial inputs. ALPAKAS is freely available via Zenodo at <https://doi.org/XXXX??> under an open-access licence and described in the corresponding data descriptor <https://doi.org/XXXX??>. The dataset was developed as part of the AlKa-DL project.
+This code repository contains all R scripts required to generate the ALPAKAS dataset from original discharge time series and raw geospatial inputs. ALPAKAS is freely available via Zenodo at <https://doi.org/10.5281/zenodo.19329693> under an open-access licence and described in the corresponding data descriptor <https://doi.org/XXXX> (to be updated). The dataset was developed as part of the AlKa-DL project.
 
 All data processing were performed in R 4.4 on a Windows Server 2019 Standard system (Version 1809). Climatic indices were computed using adapted code from Nans Addor (Addor, 2020, https://github.com/naddor/camels, last access: 5 May 2026).
 
@@ -40,7 +40,7 @@ Collected station metadata, are available in the file `station_meta_input.csv` i
 
 ### Discharge Time Series
 
-In Step 1, discharge hydrographs are preprocessed conditionally based on the temporal resolution class of the original time series, following the workflow described in detail in Joger et al. ?? and illustrated in Figure??. Processing is applied sequentially to individual sites within a loop, with preprocessing steps selected according to the respective temporal resolution class. The workflow includes manual data quality control. Quality flagging applied to the original instantaneous time series is not fully reproducible, as these data could not be made publicly available. However, for each temporal resolution class, one representative original time series is provided in the correct format, including manually assigned quality control flags (instantaneous: Source de l´Areuse (Bundesamt für Umwelt (BAFU) - Abteilung Hydrologie; subset 2015-2024 due to file size); hourly: Source d´Argens (Service central d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) - Hydroportail); daily: Source des Frayères (Service central d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) - Hydroportail)).
+In Step 1, discharge hydrographs are preprocessed conditionally based on the temporal resolution class of the original time series, following the workflow described in detail in data descriptor and illustrated in Fig. B1. Processing is applied sequentially to individual sites within a loop, with preprocessing steps selected according to the respective temporal resolution class. The workflow includes manual data quality control. Quality flagging applied to the original instantaneous time series is not fully reproducible, as these data could not be made publicly available. However, for each temporal resolution class, one representative original time series is provided in the correct format, including manually assigned quality control flags (instantaneous: Source de l´Areuse (Bundesamt für Umwelt (BAFU) - Abteilung Hydrologie; subset 2015-2024 due to file size); hourly: Source d´Argens (Service central d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) - Hydroportail); daily: Source des Frayères (Service central d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) - Hydroportail)).
 
 **Input data requirements**
 
@@ -63,7 +63,7 @@ The workflow is temporarily interrupted to allow manual assignment of quality an
 
 ### Buffer Approximations
 
-In Step 2, catchment buffers are approximated for all sites following the approach described in Joger et al. ??.
+In Step 2, catchment buffers are approximated for all sites following the approach described in the data descriptor.
 
 **Input data requirements**
 
