@@ -50,8 +50,8 @@ preprocessing:
 
 In Step 1, discharge hydrographs are preprocessed conditionally based on
 the temporal resolution class of the original time series, following the
-workflow described in detail in data descriptor and illustrated in Fig.
-B1. Processing is applied sequentially to individual sites within a
+workflow described in detail in the data descriptor and illustrated in
+Fig. B1. Processing is applied sequentially to individual sites within a
 loop, with preprocessing steps selected according to the respective
 temporal resolution class. The workflow includes manual data quality
 control. Quality flagging applied to the original instantaneous time
@@ -59,12 +59,9 @@ series is not fully reproducible, as these data could not be made
 publicly available. However, for each temporal resolution class, one
 representative original time series is provided in the correct format,
 including manually assigned quality control flags (instantaneous: Source
-de l´Areuse (Bundesamt für Umwelt (BAFU) - Abteilung Hydrologie; subset
-2015-2024 due to file size); hourly: Source d´Argens (Service central
-d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) -
-Hydroportail); daily: Source des Frayères (Service central
-d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI) -
-Hydroportail)).
+de l´Areuse (BAFU, 2025; subset 2015-2024 due to file size); hourly:
+Source d´Argens (SCHAPI, 2022); daily: Source des Frayères (SCHAPI,
+2022).
 
 **Input data requirements**
 
@@ -73,7 +70,7 @@ stored in the subfolder `input_data/`, each containing the following
 columns:
 
 - `date`: timestamp in `YYYY-mm-dd` or `YYYY-mm-dd HH:MM:SS` format  
-- `discharge`: discharge values in L s$^{-1}$  
+- `discharge`: discharge values in L s⁻¹
 - `qc_flag`: boolean indicator specifying whether a data point was
   identified as an outlier or artefact during manual quality control  
 - `qc_type`: classification of flagged values as “outlier” or “artefact”
@@ -160,7 +157,7 @@ which:
     the subfolder `output_data/` for both
 
 - existing catchment delineations (`catchment_expert/`), and
-- buffer-based approximations (`catchment_approx`).
+- buffer-based approximations (`catchment_approx/`)
 
 3.  saves the resulting aggregated meteorological time series in daily
     and hourly resolution in `meteorological_time_series/` and static
@@ -254,3 +251,14 @@ directories under `step3_catchment_aggregates/input_data/...`.
 | E-OBS              | [Access dataset](https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php)                                         | `.../meteo_data_prod/EOBS/`                           |
 | ERA5-Land          | [Access dataset](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means?tab=overview)               | `.../meteo_data_prod/ERA5land/`                       |
 |                    |                                                                                                                            |                                                       |
+
+## References
+
+BAFU: Basismessnetz Oberflächengewässer, Bundesamt für Umwelt (BAFU) -
+Abteilung Hydrologie, discharge data received: 30 January 2025, 2025.
+
+SCHAPI: Hydroportail - Site de référence d’accès aux données
+hydrométriques et hydrologiques en France, Service central
+d’hydrométéorologie et d’appui à la prévision des inondations (SCHAPI)
+\[data set\], <https://www.hydro.eaufrance.fr/>, last access: 31 March
+2025, 2022.
