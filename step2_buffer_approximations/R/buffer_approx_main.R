@@ -67,6 +67,19 @@ hydrometeo_valid_hy(station_meta = station_meta)
 
 ### compute catchment approximations based on buffer approach
 # compute recharge per hydrological year
+#
+# The following settings correspond to those used to derive the
+# catchment approximations included in the ALPAKAS dataset:
+# - soil moisture storage changes: included
+# - snow storage changes: included
+# - surface runoff: excluded
+#
+# Thus, recharge is calculated as:
+# R = P - ET - ΔSM - ΔSWE
+#
+# where P is precipitation, ET is actual evapotranspiration,
+# ΔSM is the change in soil moisture storage, and ΔSWE is the
+# change in snow-water-equivalent storage.
 if (file.exists(file.path(path_buff_approx_temp, "R_annual_1951_2024.nc"))){
   recharge_nc<- nc_open(file.path(path_buff_approx_temp, "R_annual_1951_2024.nc"))
 } else{
