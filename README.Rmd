@@ -14,9 +14,9 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = 'center', fig.pos = "H", out.widt
 </p>
 
 
-This code repository contains all R scripts required to generate the ALPAKAS dataset from original discharge time series and raw geospatial inputs. ALPAKAS is freely available via Zenodo at <https://doi.org/10.5281/zenodo.19329693> under an open-access licence and described in the corresponding data descriptor <https://doi.org/XXXX> (to be updated). The dataset was developed as part of the AlKa-DL project.
+This code repository contains all R scripts required to generate the ALPAKAS dataset from original discharge time series and raw geospatial inputs. ALPAKAS is freely available via Zenodo at <https://doi.org/10.5281/zenodo.19329693> under an open-access licence and described in the corresponding data descriptor <https://doi.org/10.5194/essd-2026-707>. The dataset was developed as part of the AlKa-DL project.
 
-All data processing were performed in R 4.4 on a Windows Server 2019 Standard system (Version 1809). Climatic indices were computed using adapted code from Nans Addor (Addor, 2020, https://github.com/naddor/camels, last access: 5 May 2026).
+All data processing were performed in R 4.4 on a Windows Server 2019 Standard system (Version 1809). Climatic indices were computed using adapted code from Nans Addor (Addor, 2020, <https://github.com/naddor/camels>, last access: 5 May 2026).
 
 ## Getting Started
 

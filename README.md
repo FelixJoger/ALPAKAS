@@ -10,7 +10,7 @@ ALPAKAS dataset from original discharge time series and raw geospatial
 inputs. ALPAKAS is freely available via Zenodo at
 <https://doi.org/10.5281/zenodo.19329693> under an open-access licence
 and described in the corresponding data descriptor
-<https://doi.org/XXXX> (to be updated). The dataset was developed as
+<https://doi.org/10.5194/essd-2026-707>. The dataset was developed as
 part of the AlKa-DL project.
 
 All data processing were performed in R 4.4 on a Windows Server 2019
